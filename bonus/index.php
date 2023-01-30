@@ -103,6 +103,23 @@ $selected_vote = $_GET['vote']
                                 </td>
                             <?php } ?>
                         </tr>
+                    <?php } else if ($selected_vote == null) { ?>
+                        <tr>
+                            <?php foreach ($item as $key => $value) { ?>
+                                <td>
+                                    <?php
+                                    if ($key == 'parking') {
+                                        if ($value == true) {
+                                            $value = 'sì';
+                                        } else {
+                                            $value = 'no';
+                                        }
+                                    }
+                                    echo $value;
+                                    ?>
+                                </td>
+                            <?php } ?>
+                        </tr>
                     <?php } ?>
                 <?php } ?>
             </tbody>
