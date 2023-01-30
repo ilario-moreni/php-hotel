@@ -49,17 +49,47 @@ $hotels = [
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class='container'>
-        <?php foreach ($hotels as $item) {
-            foreach ($item as $key => $value) {
-                echo $key . '=' . $value . '<br>';
-            }
-        }
-        ?>
+    <div class="container my-5">
+        <table class='table'>
+            <thead>
+                <?php foreach ($hotels[0] as $key => $value) { ?>
+                    <th class='border'>
+                        <?php echo strtoupper($key); ?>
+                    </th>
+                <?php
+                }
+                ?>
+            </thead>
+            <tbody>
+                <?php foreach ($hotels as $item) {  ?>
+                    <tr>
+                        <?php foreach ($item as $key => $value) { ?>
+                            <td>
+                                <?php
+                                if ($key == 'parking') {
+                                    if ($value == true) {
+                                        $value = 'sì';
+                                    } else {
+                                        $value = 'no';
+                                    }
+                                }
+
+                                echo $value;
+
+
+                                ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </body>
 
